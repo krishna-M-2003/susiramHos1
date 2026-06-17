@@ -86,15 +86,36 @@ export function Header() {
     }
   }, [pathname])
 
-  // Prevent scroll when mobile menu is open
+  // Robust scroll-lock: preserves scroll position, prevents iOS bounce,
+  // compensates for scrollbar disappearance to avoid layout shift.
   React.useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = "unset"
+    if (!isOpen) return
+
+    // Capture current scroll position before locking
+    const scrollY = window.scrollY
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
+
+    // Pin the body at its current position (iOS-safe technique)
+    document.body.style.position = "fixed"
+    document.body.style.top = `-${scrollY}px`
+    document.body.style.left = "0"
+    document.body.style.right = "0"
+    document.body.style.overflow = "hidden"
+    // Compensate for scrollbar disappearance to prevent layout shift
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`
     }
+
     return () => {
-      document.body.style.overflow = "unset"
+      // Restore all body styles
+      document.body.style.position = ""
+      document.body.style.top = ""
+      document.body.style.left = ""
+      document.body.style.right = ""
+      document.body.style.overflow = ""
+      document.body.style.paddingRight = ""
+      // Jump back to the exact scroll position silently
+      window.scrollTo({ top: scrollY, behavior: "instant" })
     }
   }, [isOpen])
 
@@ -197,7 +218,30 @@ export function Header() {
           </div>
 
           {/* Mobile Right Bar (Theme toggle + Hamburger) */}
-          <div className="flex items-center gap-3 lg:hidden">
+          <div className="flex items-center gap-2 lg:hidden">
+            {/* Location icon - compact for mobile header */}
+            <Link
+              href="/#location"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center justify-center w-8 h-8 rounded-full border border-luxury-gold/30 bg-primary/5 dark:bg-white/5 text-muted-foreground hover:border-luxury-gold hover:text-luxury-gold transition-all duration-300"
+              title="Hospital Location"
+            >
+              <MapPin className="w-4 h-4" />
+            </Link>
+
+            {/* ER Direct compact pill */}
+            <a
+              href={`tel:${SITE_CONFIG.contact.phone}`}
+              className="flex items-center gap-1 text-[10px] font-bold text-rose-600 dark:text-rose-400 px-2.5 py-1.5 rounded-lg bg-rose-50 dark:bg-rose-950/30 border border-rose-100 dark:border-rose-900/40 hover:opacity-85 transition-opacity leading-none"
+              title="Emergency Direct Line"
+            >
+              <span className="relative flex h-1.5 w-1.5 mr-0.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-500 opacity-75" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-rose-600" />
+              </span>
+              ER
+            </a>
+
             <ThemeToggle />
             
             <button
@@ -221,8 +265,9 @@ export function Header() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 bg-background/90 backdrop-blur-xl lg:hidden flex flex-col pt-24"
+            style={{ overscrollBehavior: "contain", touchAction: "pan-y" }}
           >
-            <div className="flex-1 overflow-y-auto px-8 pb-12 flex flex-col justify-between">
+            <div className="flex-1 overflow-y-auto overscroll-contain px-8 pb-12 flex flex-col justify-between">
               
               {/* Navigation Links */}
               <nav className="flex flex-col gap-6">
@@ -270,13 +315,23 @@ export function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ delay: 0.25, duration: 0.4 }}
-                className="space-y-4 pt-8 border-t border-border"
+                className="space-y-3 pt-8 border-t border-border"
               >
+                {/* Location Link */}
+                <Link
+                  href="/#location"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-center gap-3 w-full py-3.5 rounded-xl font-semibold border border-luxury-gold/40 bg-luxury-gold/5 text-luxury-gold-dark dark:text-luxury-gold hover:bg-luxury-gold/10 transition-colors duration-300"
+                >
+                  <MapPin className="w-4 h-4" />
+                  <span>Hospital Location &amp; Campus Map</span>
+                </Link>
+
                 {/* Emergency Contact */}
                 <a
                   href={`tel:${SITE_CONFIG.contact.phone}`}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-center gap-3 w-full py-4 rounded-xl font-semibold bg-rose-600 hover:bg-rose-700 text-white transition-colors duration-300"
+                  className="flex items-center justify-center gap-3 w-full py-3.5 rounded-xl font-semibold bg-rose-600 hover:bg-rose-700 text-white transition-colors duration-300"
                 >
                   <Phone className="w-5 h-5 animate-pulse" />
                   <span>Call Emergency Services</span>

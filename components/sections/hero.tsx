@@ -132,11 +132,11 @@ export function Hero() {
             <div className="absolute inset-4 sm:inset-0 rounded-[2.5rem] border border-border/60 overflow-hidden shadow-2xl -rotate-3">
               <Image
                 src="/images/hero-interior.png"
-                alt="Susiram Clinical Interior"
+                alt="Susiram Premium Doctor"
                 fill
                 priority
-                sizes="(max-w-768px) 100vw, 40vw"
-                className="object-cover opacity-90 dark:opacity-85"
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-cover object-top opacity-95 dark:opacity-90"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
             </div>
