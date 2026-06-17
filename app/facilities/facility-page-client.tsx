@@ -35,10 +35,10 @@ export function FacilityPageClient({ facility }: FacilityPageClientProps) {
   }
 
   return (
-    <div className="relative min-h-screen bg-background pb-20 font-sans">
+    <div className="relative min-h-screen bg-background pb-20 font-sans overflow-x-hidden">
       {/* Background radial glow */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-luxury-gold/5 dark:bg-luxury-gold/5 blur-[150px] pointer-events-none -z-10" />
-      <div className="absolute bottom-20 left-0 w-[500px] h-[500px] rounded-full bg-primary/5 dark:bg-primary/5 blur-[120px] pointer-events-none -z-10" />
+      <div className="absolute top-0 right-0 w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] rounded-full bg-luxury-gold/5 dark:bg-luxury-gold/5 blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-20 left-0 w-[250px] h-[250px] sm:w-[500px] sm:h-[500px] rounded-full bg-primary/5 dark:bg-primary/5 blur-[120px] pointer-events-none" />
 
       {/* Hero Banner Section */}
       <div className="relative w-full h-[360px] md:h-[450px] overflow-hidden flex items-end">

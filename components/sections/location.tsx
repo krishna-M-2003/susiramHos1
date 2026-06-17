@@ -8,7 +8,7 @@ import { SITE_CONFIG } from "@/lib/constants"
 
 export function LocationSection() {
   return (
-    <section id="location" className="relative py-20 lg:py-28 bg-zinc-50 dark:bg-zinc-950/20 border-t border-border/60 flex flex-col items-center">
+    <section id="location" className="relative overflow-hidden py-20 lg:py-28 bg-zinc-50 dark:bg-zinc-950/20 border-t border-border/60 flex flex-col items-center">
       
       {/* Ambient background glow */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-luxury-gold/5 blur-[100px] pointer-events-none" />

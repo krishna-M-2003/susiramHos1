@@ -45,7 +45,7 @@ const cardVariants = {
 
 export function Facilities() {
   return (
-    <section id="facilities" className="relative py-20 lg:py-28 bg-background flex flex-col items-center border-t border-border/60">
+    <section id="facilities" className="relative overflow-hidden py-20 lg:py-28 bg-background flex flex-col items-center border-t border-border/60">
       
       {/* Background gradients */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-luxury-gold/5 dark:bg-luxury-gold/5 blur-[120px] pointer-events-none" />

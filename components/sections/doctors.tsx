@@ -57,7 +57,7 @@ export function Doctors() {
   }
 
   return (
-    <section id="doctors" className="relative py-20 lg:py-28 bg-background flex flex-col items-center">
+    <section id="doctors" className="relative overflow-hidden py-20 lg:py-28 bg-background flex flex-col items-center">
       
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-luxury-gold/5 dark:bg-luxury-gold/5 blur-[120px] pointer-events-none" />

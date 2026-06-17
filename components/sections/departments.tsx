@@ -41,10 +41,12 @@ const cardVariants = {
 
 export function Departments() {
   return (
-    <section id="services" className="relative py-20 lg:py-28 bg-zinc-50/50 dark:bg-zinc-950/20 flex flex-col items-center">
+    <section id="services" className="relative overflow-hidden py-20 lg:py-28 bg-zinc-50/50 dark:bg-zinc-950/20 flex flex-col items-center">
       
       {/* Decorative Accent Lights */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 dark:bg-primary/5 blur-[150px] pointer-events-none" />
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="w-[min(600px,100%)] h-[600px] rounded-full bg-primary/5 dark:bg-primary/5 blur-[150px]" />
+      </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-8 w-full z-10">
         

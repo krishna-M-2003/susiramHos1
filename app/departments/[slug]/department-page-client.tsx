@@ -65,11 +65,11 @@ export function DepartmentPageClient({ slug, service, detail, specialists }: Dep
   }
 
   return (
-    <main className="min-h-screen bg-background pt-24 pb-20 flex flex-col items-center w-full">
+    <main className="min-h-screen bg-background pt-24 pb-20 flex flex-col items-center w-full overflow-x-hidden">
       
       {/* Decorative ambient lights */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-primary/5 dark:bg-primary/10 blur-[120px] pointer-events-none -mr-40" />
-      <div className="absolute top-96 left-0 w-[400px] h-[400px] rounded-full bg-luxury-gold/5 dark:bg-luxury-gold/10 blur-[100px] pointer-events-none -ml-40" />
+      <div className="absolute top-0 right-0 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] rounded-full bg-primary/5 dark:bg-primary/10 blur-[120px] pointer-events-none" />
+      <div className="absolute top-96 left-0 w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] rounded-full bg-luxury-gold/5 dark:bg-luxury-gold/10 blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-8 w-full z-10 flex flex-col space-y-12">
         

@@ -42,7 +42,7 @@ export function Testimonials() {
 
   const slideVariants = {
     enter: (dir: number) => ({
-      x: dir > 0 ? 100 : -100,
+      x: dir > 0 ? "100%" : "-100%",
       opacity: 0,
     }),
     center: {
@@ -54,7 +54,7 @@ export function Testimonials() {
       },
     },
     exit: (dir: number) => ({
-      x: dir > 0 ? -100 : 100,
+      x: dir > 0 ? "-100%" : "100%",
       opacity: 0,
       transition: {
         x: { type: "spring" as const, stiffness: 300, damping: 30 },
@@ -93,7 +93,7 @@ export function Testimonials() {
         </div>
 
         {/* Carousel Container */}
-        <div className="relative border border-border/60 bg-background/60 backdrop-blur-md p-8 md:p-12 lg:p-16 rounded-[2.5rem] shadow-2xl premium-shadow overflow-hidden">
+        <div className="relative border border-border/60 bg-background/60 backdrop-blur-md p-6 sm:p-8 md:p-12 lg:p-16 rounded-[2.5rem] shadow-2xl premium-shadow overflow-hidden">
           
           <div className="absolute top-8 left-8">
             <Quote className="w-16 h-16 text-luxury-gold/15 dark:text-luxury-gold/10 pointer-events-none" />

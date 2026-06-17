@@ -52,8 +52,8 @@ export function Hero() {
     <section className="relative overflow-hidden bg-background py-16 lg:py-24 flex flex-col items-center">
       
       {/* Premium Ambient Light Gradients (Tesla style visual design) */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-primary/5 dark:bg-primary/10 blur-[120px] pointer-events-none -mr-40 -mt-20" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-luxury-gold/5 dark:bg-luxury-gold/10 blur-[100px] pointer-events-none -ml-40 -mb-20" />
+      <div className="absolute top-0 right-0 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] rounded-full bg-primary/5 dark:bg-primary/10 blur-[120px] pointer-events-none -mr-20 sm:-mr-40 -mt-10 sm:-mt-20" />
+      <div className="absolute bottom-0 left-0 w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] rounded-full bg-luxury-gold/5 dark:bg-luxury-gold/10 blur-[100px] pointer-events-none -ml-20 sm:-ml-40 -mb-10 sm:-mb-20" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-8 w-full">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -126,10 +126,10 @@ export function Hero() {
           </motion.div>
 
           {/* Right Column: Premium Visual Composition */}
-          <div className="lg:col-span-5 relative w-full h-[400px] sm:h-[480px] lg:h-[520px] flex items-center justify-center pointer-events-none">
+          <div className="lg:col-span-5 relative w-full h-[400px] sm:h-[480px] lg:h-[520px] flex items-center justify-center pointer-events-none overflow-hidden">
             
             {/* Visual Backplate with high-resolution interior image */}
-            <div className="absolute inset-0 rounded-[2.5rem] border border-border/60 overflow-hidden shadow-2xl -rotate-3">
+            <div className="absolute inset-4 sm:inset-0 rounded-[2.5rem] border border-border/60 overflow-hidden shadow-2xl -rotate-3">
               <Image
                 src="/images/hero-interior.png"
                 alt="Susiram Clinical Interior"
@@ -146,7 +146,7 @@ export function Hero() {
               variants={floatingCardVariants}
               initial="hidden"
               animate="visible"
-              className="absolute top-8 right-0 sm:-right-4 w-[240px] sm:w-[280px] glassmorphism p-5 rounded-2xl shadow-xl flex flex-col gap-3 border border-white/60 dark:border-white/10"
+              className="absolute top-8 right-0 w-[200px] sm:w-[240px] glassmorphism p-3 sm:p-5 rounded-2xl shadow-xl flex flex-col gap-2 sm:gap-3 border border-white/60 dark:border-white/10"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -181,7 +181,7 @@ export function Hero() {
               variants={floatingCardVariants}
               initial="hidden"
               animate="visible"
-              className="absolute bottom-12 left-0 sm:-left-6 w-[220px] sm:w-[250px] glassmorphism p-5 rounded-2xl shadow-xl flex flex-col gap-3 border border-white/60 dark:border-white/10"
+              className="absolute bottom-12 left-0 w-[180px] sm:w-[220px] glassmorphism p-3 sm:p-5 rounded-2xl shadow-xl flex flex-col gap-2 sm:gap-3 border border-white/60 dark:border-white/10"
             >
               <div className="flex items-center gap-2">
                 <div className="w-7 h-7 rounded-full bg-luxury-gold/10 flex items-center justify-center">
@@ -204,7 +204,7 @@ export function Hero() {
               variants={floatingCardVariants}
               initial="hidden"
               animate="visible"
-              className="absolute bottom-32 right-4 sm:-right-2 glassmorphism p-4 rounded-xl shadow-lg flex items-center gap-3 border border-white/60 dark:border-white/10"
+              className="absolute bottom-32 right-2 sm:right-4 glassmorphism p-3 sm:p-4 rounded-xl shadow-lg flex items-center gap-2 sm:gap-3 border border-white/60 dark:border-white/10"
             >
               <div className="flex -space-x-2.5">
                 {[

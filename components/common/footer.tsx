@@ -11,7 +11,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-zinc-50 dark:bg-zinc-950/40 border-t border-border/80" aria-label="Hospital Footer">
+    <footer className="bg-zinc-50 dark:bg-zinc-950/40 border-t border-border/80 overflow-hidden" aria-label="Hospital Footer">
       
       {/* Top Section: Quick Timing & Assistance Banner Card */}
       <div className="max-w-7xl mx-auto px-6 md:px-8 pt-16 pb-12 border-b border-border/60">
